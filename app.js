@@ -1,15 +1,17 @@
 let playerChoice = null
+let compChoice = null
 
 function play(buttonClick){
     if(buttonClick == 'rock'){
-        playerChoice == 'rock'
+        playerChoice = 'rock'
     }
     else if(buttonClick == 'paper' ){
-        playerChoice == 'paper'
+        playerChoice = 'paper'
     }
     else if(buttonClick == 'scissors'){
-        playerChoice == 'scissors'
+        playerChoice = 'scissors'
     }
+    computer()
 }
 
 function computer(){
@@ -18,13 +20,15 @@ function computer(){
         'paper',
         'scissors'
     ]
-    let compChoice = options(Math.floor(Math.random()*options.length))
-    return compChoice
+    let random = Math.floor(Math.random()*options.length)
+    compChoice = options[random]
+    victory()
 }
 
 function victory(){
+
     if(playerChoice == compChoice){
-        console.log('Tie')
+        console.log('Tie!')
     }
     else if (playerChoice == 'rock' && compChoice == 'scissors'){
         console.log('Victory!')
